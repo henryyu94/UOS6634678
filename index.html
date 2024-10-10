@@ -7,10 +7,8 @@
     <h1><b>ENG0018 Computer Laboratory 2023/24</b></h1>
     <h2>URN 6634678555</h2>
 
-    <!-- Last commit badge -->
-    <div>
-        <img src="https://img.shields.io/github/last-commit/henryyu94/UOS6634678" alt="Last Commit">
-    </div>
+    <!-- Last commit time display -->
+    <div id="last-updated">Loading last update time...</div>
 
     <hr>
     <h2 style="font-family: calibri;"> <b>Conference paper: Bridge Deck Repairs</b></h2>
@@ -102,6 +100,41 @@
         continued until some stopping criterion has been met, such as reaching a stage where information from the selected
         instances is contrary to the model, causing the classifier confidence to drop, as in Vlachos (2008)
     </h6>
+
+    <script>
+        async function getLastUpdatedTime() {
+            const username = 'henryyu94';
+            const repo = 'UOS6634678';
+
+            const url = `https://api.github.com/repos/${username}/${repo}/commits`;
+
+            try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/vnd.github.v3+json',
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Error fetching data: ${response.status} - ${response.statusText}`);
+                }
+
+                const commits = await response.json();
+                if (commits && commits.length > 0) {
+                    const lastCommitDate = new Date(commits[0].commit.committer.date);
+                    document.getElementById('last-updated').innerText = `Last Updated: ${lastCommitDate.toLocaleString()}`;
+                } else {
+                    document.getElementById('last-updated').innerText = 'No commits found in the repository.';
+                }
+            } catch (error) {
+                console.error('Error fetching the last updated time:', error);
+                document.getElementById('last-updated').innerText = 'Error fetching update time. Please check the repository details.';
+            }
+        }
+
+        window.onload = getLastUpdatedTime;
+    </script>
 
 </body>
 
