@@ -14,6 +14,24 @@
     </head>
   </head>
 
+  async function getLastUpdatedTime() {
+        const username = 'your-student-username'; // Replace with student's GitHub username
+        const repo = 'repository-name'; // Replace with the repository name
+
+        const url = `https://api.github.com/repos/${username}/${repo}/commits`;
+        try {
+            const response = await fetch(url);
+            const commits = await response.json();
+            const lastCommitDate = new Date(commits[0].commit.committer.date);
+            document.getElementById('last-updated').innerText = `Last Updated: ${lastCommitDate.toLocaleString()}`;
+        } catch (error) {
+            console.error('Error fetching the last updated time:', error);
+            document.getElementById('last-updated').innerText = 'Error fetching update time';
+        }
+    }
+
+    window.onload = getLastUpdatedTime;
+  
     <!style for tables>
       <style>
         table{
