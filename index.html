@@ -2,112 +2,123 @@
 
 <html>
 
-  <head>
-    <head>
+<head>
     <img src="58582c01f034562c582205ff.png" alt="Banner" width="300" height="250">
     <h1><b>ENG0018 Computer Laboratory 2023/24</b></h1>
-    <h2> URN 6634678555 </h2>
+    <h2>URN 6634678555</h2>
+    <div id="last-updated">Loading last update time...</div> <!-- Last update time display -->
 
     <hr>
-    <h2 style = ”font-family: calibri;”> <b> Conference paper: Bridge Deck Repairs</b></h2>
+    <h2 style="font-family: calibri;"> <b>Conference paper: Bridge Deck Repairs</b></h2>
     <hr>
-    </head>
-  </head>
+</head>
 
-  async function getLastUpdatedTime() {
-        const username = 'your-student-username'; // Replace with student's GitHub username
-        const repo = 'repository-name'; // Replace with the repository name
-
-        const url = `https://api.github.com/repos/${username}/${repo}/commits`;
-        try {
-            const response = await fetch(url);
-            const commits = await response.json();
-            const lastCommitDate = new Date(commits[0].commit.committer.date);
-            document.getElementById('last-updated').innerText = `Last Updated: ${lastCommitDate.toLocaleString()}`;
-        } catch (error) {
-            console.error('Error fetching the last updated time:', error);
-            document.getElementById('last-updated').innerText = 'Error fetching update time';
-        }
+<!style for tables>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 30%;
     }
 
-    window.onload = getLastUpdatedTime;
-  
-    <!style for tables>
-      <style>
-        table{
-          font-family: arial, sans-serif;
-          border-collapse: collapse;
-          width: 30%;
-        }
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
 
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: left;
-          padding: 8px;
-        }
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
 
-        tr:nth-child(even) {
-          background-color: #dddddd;
-        }
+<style>
+    p.ex1 {
+        margin-left: 250px;
+    }
+</style>
 
-        
-      </style>
-      
-      <style>
-        p.ex1{
-      margin-left: 250px;
-      }
-      </style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+    /mySlides {
+        display: none;
+    }
+</style>
 
-  
-    <meta name="viewport" content="width=device-width, initialscale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <style>
-      /mySlides {display:none;>
-    </style>
+<body style="background-color:#FFFFFF;margin-left:50px;">
 
-    <body style="background-color:#FFFFFF;margin-left:50px;">
-
-
-       <!table of contents>
-      <pre>
+    <!table of contents>
+    <pre>
         
       </pre>
-      <table>
-
+    <table>
         <tr>
-          <th><h3> Table of contents </th></h3>
-      </tr>
+            <th>
+                <h3> Table of contents </h3>
+            </th>
+        </tr>
         <tr>
-          <td><a href="#Abstract">Abstract</td>
+            <td><a href="#Abstract">Abstract</a></td>
         </tr>
-         <tr>
-          <td><a href="#Introduction">Introduction</td>
+        <tr>
+            <td><a href="#Introduction">Introduction</a></td>
         </tr>
+    </table>
 
+    <hr>
+    <h3 id="Abstract">Abstract</h3>
+    <hr>
 
-      </table>
+    <h6>
+        This paper presents a novel adaptive active learning strategy. The most accurate classification model from a
+        heterogeneous classifier pool is selected at each learning epoch. Our goal is to achieve greater incremental
+        improvement in accuracy, compared to using a single type of classification model throughout the process. The
+        strategy is evaluated on benchmark data sets. We further consider an application to texture classification
+        problems in sonar mosaic imagery and compare it with non- adaptive active learning and traditional machine learning
+        approaches. Our results show that...We conclude that
+    </h6>
 
+    <hr>
+    <h3 id="Introduction">Introduction</h3>
+    <hr>
 
-      
-      <hr>
-        <h3 id="Abstract">Abstract</h3>
-      <hr>
-      
-      <!p class = "ex1">
-        <h6>
-        This paper presents a novel adaptive active learning strategy. The most accurate classification model from a heterogeneous classifier pool is selected at each learning epoch. Our goal is to achieve greater incremental improvement in accuracy, compared to using a single type of classification model throughout the process. The strategy is evaluated on benchmark data sets. We further consider an application to texture classification problems in sonar mosaic imagery and compare it with non- adaptive active learning and traditional machine learning approaches. Our results show that...We conclude that
-        </h6>
-      <!/p>
-        
-      <hr>
-        <h3 id="Introduction">Introduction</h3>  
-      <hr>
-      
-      <h6>
-        Active Learning (Angluin, 1988, Cohn et al., 1994) is a paradigm where a concept is learnt by an intelligent machine through the interaction of an oracle with the machine system, over a sequence of learning epochs. A distinctive component in an active system is the querying strategy, used to sample candidate training instances from a pool and evaluate them for informativeness, i.e., their potential to improve the classification model. Various strategies have been proposed including; Query by Committee (Seung et al., 1992), Monte Carlo estimation (Roy and McCallum, 2001), uncertainty sampling (Lewis and Gale, 1994) and version space reduction (margin sampling) (Tong and Koller, 2001). Irrespective of how the most informative pattern instances are chosen at each epoch they are presented for labeling, to a machine (database) or human oracle that has knowledge of the class labels. After adding the newly labeled instances to the current training set, a revised model is subsequently induced. A goal of this process is to achieve an efficient, incremental advancement of learning at each epoch. The process is continued until some stopping criterion has been met, such as reaching a stage where information from the selected instances is contrary to the model, causing the classifier confidence to drop, as in Vlachos (2008)
-      </h6>
+    <h6>
+        Active Learning (Angluin, 1988, Cohn et al., 1994) is a paradigm where a concept is learnt by an intelligent
+        machine through the interaction of an oracle with the machine system, over a sequence of learning epochs. A
+        distinctive component in an active system is the querying strategy, used to sample candidate training instances
+        from a pool and evaluate them for informativeness, i.e., their potential to improve the classification model.
+        Various strategies have been proposed including; Query by Committee (Seung et al., 1992), Monte Carlo estimation
+        (Roy and McCallum, 2001), uncertainty sampling (Lewis and Gale, 1994) and version space reduction (margin sampling)
+        (Tong and Koller, 2001). Irrespective of how the most informative pattern instances are chosen at each epoch they
+        are presented for labeling, to a machine (database) or human oracle that has knowledge of the class labels. After
+        adding the newly labeled instances to the current training set, a revised model is subsequently induced. A goal of
+        this process is to achieve an efficient, incremental advancement of learning at each epoch. The process is
+        continued until some stopping criterion has been met, such as reaching a stage where information from the selected
+        instances is contrary to the model, causing the classifier confidence to drop, as in Vlachos (2008)
+    </h6>
 
-     
+    <script>
+        async function getLastUpdatedTime() {
+            const username = 'your-student-username'; // Replace with student's GitHub username
+            const repo = 'repository-name'; // Replace with the repository name
+
+            const url = `https://api.github.com/repos/${username}/${repo}/commits`;
+            try {
+                const response = await fetch(url);
+                const commits = await response.json();
+                const lastCommitDate = new Date(commits[0].commit.committer.date);
+                document.getElementById('last-updated').innerText = `Last Updated: ${lastCommitDate.toLocaleString()}`;
+            } catch (error) {
+                console.error('Error fetching the last updated time:', error);
+                document.getElementById('last-updated').innerText = 'Error fetching update time';
+            }
+        }
+
+        window.onload = getLastUpdatedTime;
+    </script>
+
+</body>
+
 </html>
-
