@@ -221,9 +221,7 @@ Formatting some equations using MathML
   <!-- //////////////////////////////////////////////////////////////////////////////// -->
   <!-- ////////////////////////////// Adding last update ////////////////////////////// -->
   <!-- //////////////////////////////////////////////////////////////////////////////// -->
-</body>
- <hr>
- <script>
+    <script>
         async function getLastUpdatedTime() {
             const username = 'henryyu94';
             const repo = 'UOS6634678';
@@ -245,7 +243,7 @@ Formatting some equations using MathML
                 const commits = await response.json();
                 if (commits && commits.length > 0) {
                     const lastCommitDate = new Date(commits[0].commit.committer.date);
-                    document.getElementById('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
+                    document.getElementById('last-updated').innerText = `Last Updated: ${lastCommitDate.toLocaleString()}`;
                 } else {
                     document.getElementById('last-updated').innerText = 'No commits found in the repository.';
                 }
@@ -260,40 +258,7 @@ Formatting some equations using MathML
 
     <!-- Last commit time display -->
     <div id="last-updated">Loading last update time...</div>
-  <hr>
-  
-  <!-- Display Total Word Count -->
-<p id="word-count-total" style="text-align:center; font-weight: bold;">Total word count (excluding Abstract and References): 0</p>
-
-<script>
-  function countWordsInSections() {
-    // Define IDs of sections to count words in
-    const sectionIds = ["Introduction", "Analysis and discussion"];
-    let totalText = "";
-
-    // Loop through each section and collect its text content
-    sectionIds.forEach(id => {
-      const sectionElement = document.getElementById(id);
-      if (sectionElement) {
-        totalText += sectionElement.innerText + " ";
-      }
-    });
-
-    // Split text to count words, filtering out any empty strings
-    const wordCount = totalText.trim().split(/\s+/).filter(Boolean).length;
-
-    // Display the word count at the bottom of the page
-    document.getElementById("word-count-total").innerText = 
-      `Total word count (excluding Abstract and References): ${wordCount}`;
-  }
-
-  // Run the word count function after the page has fully loaded
-  window.onload = countWordsInSections;
-</script>
 
 
 </body>
-
-
-
 </html>
