@@ -70,6 +70,11 @@ p.ex1 {
     <td><a href="#References">References</td>
   </tr>
 </table>
+
+  <!-- ////////////////////////////////////////////////////////////////////// -->
+  <!-- ////////////////////////////// Abstract ////////////////////////////// -->
+  <!-- ////////////////////////////////////////////////////////////////////// -->
+  
   <hr>
   <h3 id="Abstract">Abstract</h3>
   </p>
@@ -83,9 +88,14 @@ p.ex1 {
   </pre>
   </p>
   
-  <h3 id="Introduction">Introduction</h3>
+  <!-- ///////////////////////////////////////////////////////////////////////// -->
+  <!-- ////////////////////////////// Introduction ////////////////////////////// -->
+  <!-- ///////////////////////////////////////////////////////////////////////// -->
+
+  <h3>Introduction</h3>
+<div id="Introduction">
   <pre>
-    Active Learning (Angluin, 1988, Cohn et al., 1994) is a paradigm where a concept is learnt by an intelligent machine through the 
+Active Learning (Angluin, 1988, Cohn et al., 1994) is a paradigm where a concept is learnt by an intelligent machine through the 
     interaction of an oracle with the machine system, over a sequence of learning epochs. A distinctive component in an active system 
     is the querying strategy, used to sample candidate training instances from a pool and evaluate them for informativeness, 
     i.e., their potential to improve the classification model. Various strategies have been proposed including; Query by Committee (Seung et al., 1992), 
@@ -95,7 +105,39 @@ p.ex1 {
     A goal of this process is to achieve an efficient, incremental advancement of learning at each epoch. The process is continued until some stopping criterion has been met, 
     such as reaching a stage where information from the selected instances is contrary to the model, causing the classifier confidence to drop, as in Vlachos (2008).
   </pre>
+</div>
 
+
+
+<!-- Display Word Count -->
+<p id="word-count-introduction">Introduction word count: 0</p>
+
+<script>
+  function countWordsInIntroduction() {
+    // Directly select the <pre> tag within the Introduction section by ID
+    const introductionTextElement = document.querySelector("#Introduction + pre");
+
+    if (introductionTextElement) {
+      // Get the text content within the <pre> element
+      const introductionText = introductionTextElement.innerText;
+
+      // Split the text by spaces to count words, excluding empty strings
+      const wordCount = introductionText.trim().split(/\s+/).filter(Boolean).length;
+
+      // Display the word count for the Introduction section
+      document.getElementById("word-count-introduction").innerText = `Introduction word count: ${wordCount}`;
+    }
+  }
+
+  // Run the function only after the window has fully loaded
+  window.onload = countWordsInIntroduction;
+</script>
+
+
+  <!-- ///////////////////////////////////////////////////////////////////////// -->
+  <!-- //////////////////////// Analysis and discussion //////////////////////// -->
+  <!-- ///////////////////////////////////////////////////////////////////////// -->
+  
   <h3 id="Analysis and discussion">Analysis and discussion</h3>
   Bridge deck repair durability is the subject of much recent research such as in <a href="https://www.icevirtuallibrary.com/doi/full/10.1680/jbren.21.00034">Toshihiko et al (2023).</a>
  
@@ -152,7 +194,10 @@ Formatting some equations using MathML
    </mrow>
 </math>
   
-
+  <!-- ////////////////////////////////////////////////////////////////////// -->
+  <!-- ///////////////////////////// References //////////////////////////// -->
+  <!-- ///////////////////////////////////////////////////////////////////// -->
+  
   <h3 id="References">References</h3>
   
 <p>
@@ -186,7 +231,54 @@ Formatting some equations using MathML
 
       <video src="demo.mp4" width="800" height="450" controls>
       </video>
-    
+
+  <!-- //////////////////////////////////////////////////////////////////////////////// -->
+  <!-- ////////////////////////////// Word count function ////////////////////////////// -->
+  <!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- Introduction Section -->
+<h3>Introduction</h3>
+<div id="Introduction">
+  <pre>
+    Active Learning (Angluin, 1988, Cohn et al., 1994) is a paradigm where a concept is learnt by an intelligent machine through the 
+    interaction of an oracle with the machine system, over a sequence of learning epochs. A distinctive component in an active system 
+    is the querying strategy, used to sample candidate training instances from a pool and evaluate them for informativeness, 
+    i.e., their potential to improve the classification model...
+  </pre>
+</div>
+
+<!-- Display Word Count -->
+<p id="word-count-introduction">Introduction word count: 0</p>
+
+<script>
+  function countWordsInIntroduction() {
+    // Select the Introduction section container by ID
+    const introductionContainer = document.getElementById("Introduction");
+
+    if (introductionContainer) {
+      // Retrieve text content only within the <pre> tag inside the Introduction container
+      const introductionText = Array.from(introductionContainer.querySelectorAll("pre"))
+                                    .map(el => el.innerText)
+                                    .join(" ");
+
+      // Split the text by spaces to count words, excluding empty strings
+      const wordCount = introductionText.trim().split(/\s+/).filter(Boolean).length;
+
+      // Display the word count for the Introduction section
+      document.getElementById("word-count-introduction").innerText = `Introduction word count: ${wordCount}`;
+    }
+  }
+
+  // Run the word count function for the Introduction section
+  countWordsInIntroduction();
+</script>
+
+
+
+
+
+
+
 
 
   
@@ -217,7 +309,7 @@ Formatting some equations using MathML
                 const commits = await response.json();
                 if (commits && commits.length > 0) {
                     const lastCommitDate = new Date(commits[0].commit.committer.date);
-                    document.getElementById('last-updated').innerText = `Last Updated: ${lastCommitDate.toLocaleString()}`;
+                    document.getElementById('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
                 } else {
                     document.getElementById('last-updated').innerText = 'No commits found in the repository.';
                 }
