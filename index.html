@@ -92,10 +92,11 @@ p.ex1 {
   <!-- ////////////////////////////// Introduction ////////////////////////////// -->
   <!-- ///////////////////////////////////////////////////////////////////////// -->
 
-  <h3>Introduction</h3>
+<!-- Introduction Section -->
+<h3>Introduction</h3>
 <div id="Introduction">
   <pre>
-Active Learning (Angluin, 1988, Cohn et al., 1994) is a paradigm where a concept is learnt by an intelligent machine through the 
+    Active Learning (Angluin, 1988, Cohn et al., 1994) is a paradigm where a concept is learnt by an intelligent machine through the 
     interaction of an oracle with the machine system, over a sequence of learning epochs. A distinctive component in an active system 
     is the querying strategy, used to sample candidate training instances from a pool and evaluate them for informativeness, 
     i.e., their potential to improve the classification model. Various strategies have been proposed including; Query by Committee (Seung et al., 1992), 
@@ -107,19 +108,19 @@ Active Learning (Angluin, 1988, Cohn et al., 1994) is a paradigm where a concept
   </pre>
 </div>
 
-
-
 <!-- Display Word Count -->
 <p id="word-count-introduction">Introduction word count: 0</p>
 
 <script>
   function countWordsInIntroduction() {
-    // Directly select the <pre> tag within the Introduction section by ID
-    const introductionTextElement = document.querySelector("#Introduction + pre");
+    // Select the Introduction section container by ID
+    const introductionContainer = document.getElementById("Introduction");
 
-    if (introductionTextElement) {
-      // Get the text content within the <pre> element
-      const introductionText = introductionTextElement.innerText;
+    if (introductionContainer) {
+      // Retrieve text content only within the <pre> tag inside the Introduction container
+      const introductionText = Array.from(introductionContainer.querySelectorAll("pre"))
+                                    .map(el => el.innerText)
+                                    .join(" ");
 
       // Split the text by spaces to count words, excluding empty strings
       const wordCount = introductionText.trim().split(/\s+/).filter(Boolean).length;
@@ -129,8 +130,8 @@ Active Learning (Angluin, 1988, Cohn et al., 1994) is a paradigm where a concept
     }
   }
 
-  // Run the function only after the window has fully loaded
-  window.onload = countWordsInIntroduction;
+  // Run the word count function for the Introduction section
+  countWordsInIntroduction();
 </script>
 
 
@@ -236,45 +237,6 @@ Formatting some equations using MathML
   <!-- ////////////////////////////// Word count function ////////////////////////////// -->
   <!-- //////////////////////////////////////////////////////////////////////////////// -->
 
-<!-- Introduction Section -->
-<h3>Introduction</h3>
-<div id="Introduction">
-  <pre>
-    Active Learning (Angluin, 1988, Cohn et al., 1994) is a paradigm where a concept is learnt by an intelligent machine through the 
-    interaction of an oracle with the machine system, over a sequence of learning epochs. A distinctive component in an active system 
-    is the querying strategy, used to sample candidate training instances from a pool and evaluate them for informativeness, 
-    i.e., their potential to improve the classification model...
-  </pre>
-</div>
-
-<!-- Display Word Count -->
-<p id="word-count-introduction">Introduction word count: 0</p>
-
-<script>
-  function countWordsInIntroduction() {
-    // Select the Introduction section container by ID
-    const introductionContainer = document.getElementById("Introduction");
-
-    if (introductionContainer) {
-      // Retrieve text content only within the <pre> tag inside the Introduction container
-      const introductionText = Array.from(introductionContainer.querySelectorAll("pre"))
-                                    .map(el => el.innerText)
-                                    .join(" ");
-
-      // Split the text by spaces to count words, excluding empty strings
-      const wordCount = introductionText.trim().split(/\s+/).filter(Boolean).length;
-
-      // Display the word count for the Introduction section
-      document.getElementById("word-count-introduction").innerText = `Introduction word count: ${wordCount}`;
-    }
-  }
-
-  // Run the word count function for the Introduction section
-  countWordsInIntroduction();
-</script>
-
-
-
 
 
 
@@ -326,6 +288,7 @@ Formatting some equations using MathML
     <div id="last-updated">Loading last update time...</div>
   <hr>
 </body>
+
 
 
 </html>
