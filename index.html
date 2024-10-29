@@ -179,93 +179,13 @@ Formatting some equations using MathML
   
   <h2>Conference Presentation: Bridge Deck Repairs</h2>
 
+
+  <!-- Import the video-->
+
 <video src="demo.mp4" width="800" height="450" controls>
   Your browser does not support the video tag.
 </video>
-  
-  <script>
-    // Array of slide image URLs
-    var slideImages = ["slide1.jpg", "slide2.jpg", "slide3.jpg", "slide4.jpg"]; // Add more slide URLs as needed
-    var currentSlide = 0;
-
-    function showSlide() {
-      document.getElementById('slide').src = slideImages[currentSlide];
-    }
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % slideImages.length;
-      showSlide();
-    }
-
-    function prevSlide() {
-      currentSlide = (currentSlide - 1 + slideImages.length) % slideImages.length;
-      showSlide();
-    }
-
-    // Function to show a specific slide based on the button clicked
-    function showSlideNumber(slideNumber) {
-      currentSlide = slideNumber - 1;
-      showSlide();
-    }
-
-    // Call showSlide() to display the first slide
-    showSlide();
-  </script>
- <hr> 
-<div id="slide-container">
-    <img id="slide" src="slide1.jpg" alt="Slide 1" style="width:100%; max-width:800px;">
-
-    <!-- Previous and Next buttons container -->
-    <div class="button-container">
-      <button class="button" onclick="prevSlide()">Previous</button>
-      <button class="button" onclick="nextSlide()">Next</button>
-    </div>
-
-    <!-- Slide number buttons container -->
-    <div class="slide-number-container">
-      <button class="button" onclick="showSlideNumber(1)">1</button>
-      <button class="button" onclick="showSlideNumber(2)">2</button>
-      <button class="button" onclick="showSlideNumber(3)">3</button>
-      <button class="button" onclick="showSlideNumber(4)">4</button>
-    </div>
-  </div>
- <hr> 
-   <style>
-    /* Style to center the image */
-    #slide-container {
-      text-align: center;
-      position: relative;
-    }
-
-    /* Style for the buttons */
-    .button-container {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      margin-bottom: -100px; /* Add some margin between the image and buttons */
-    }
-
-    .button {
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      margin: 0 5px; /* Add some margin between the buttons */
-    }
-
-      .slide-number-container {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      margin-bottom: -50px; /* Add some margin between the slide number buttons and the image */
-    }
     
-  </style>
 
 
 </body>
