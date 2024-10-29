@@ -108,31 +108,6 @@ p.ex1 {
   </pre>
 </div>
 
-<!-- Display Word Count -->
-<p id="word-count-introduction">Introduction word count: 0</p>
-
-<script>
-  function countWordsInIntroduction() {
-    // Select the Introduction section container by ID
-    const introductionContainer = document.getElementById("Introduction");
-
-    if (introductionContainer) {
-      // Retrieve text content only within the <pre> tag inside the Introduction container
-      const introductionText = Array.from(introductionContainer.querySelectorAll("pre"))
-                                    .map(el => el.innerText)
-                                    .join(" ");
-
-      // Split the text by spaces to count words, excluding empty strings
-      const wordCount = introductionText.trim().split(/\s+/).filter(Boolean).length;
-
-      // Display the word count for the Introduction section
-      document.getElementById("word-count-introduction").innerText = `Introduction word count: ${wordCount}`;
-    }
-  }
-
-  // Run the word count function for the Introduction section
-  countWordsInIntroduction();
-</script>
 
 
   <!-- ///////////////////////////////////////////////////////////////////////// -->
@@ -242,7 +217,6 @@ Formatting some equations using MathML
 
 
 
-
   
   <!-- //////////////////////////////////////////////////////////////////////////////// -->
   <!-- ////////////////////////////// Adding last update ////////////////////////////// -->
@@ -287,6 +261,37 @@ Formatting some equations using MathML
     <!-- Last commit time display -->
     <div id="last-updated">Loading last update time...</div>
   <hr>
+  
+  <!-- Display Total Word Count -->
+<p id="word-count-total" style="text-align:center; font-weight: bold;">Total word count (excluding Abstract and References): 0</p>
+
+<script>
+  function countWordsInSections() {
+    // Define IDs of sections to count words in
+    const sectionIds = ["Introduction", "Analysis and discussion"];
+    let totalText = "";
+
+    // Loop through each section and collect its text content
+    sectionIds.forEach(id => {
+      const sectionElement = document.getElementById(id);
+      if (sectionElement) {
+        totalText += sectionElement.innerText + " ";
+      }
+    });
+
+    // Split text to count words, filtering out any empty strings
+    const wordCount = totalText.trim().split(/\s+/).filter(Boolean).length;
+
+    // Display the word count at the bottom of the page
+    document.getElementById("word-count-total").innerText = 
+      `Total word count (excluding Abstract and References): ${wordCount}`;
+  }
+
+  // Run the word count function after the page has fully loaded
+  window.onload = countWordsInSections;
+</script>
+
+
 </body>
 
 
